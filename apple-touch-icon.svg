@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <rect width="180" height="180" fill="#026CDF"/>
+  <defs>
+    <linearGradient id="tGrad" x1="90" y1="36" x2="90" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8eef8"/>
+    </linearGradient>
+  </defs>
+  <text
+    x="90"
+    y="130"
+    text-anchor="middle"
+    font-family="Arial, Helvetica, sans-serif"
+    font-style="italic"
+    font-weight="800"
+    font-size="124"
+    fill="url(#tGrad)"
+  >t</text>
+</svg>

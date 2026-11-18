@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#111111" />
+    <title>Offline · TicketMaster</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: max(1.5rem, env(safe-area-inset-top))
+          max(1.5rem, env(safe-area-inset-right))
+          max(1.5rem, env(safe-area-inset-bottom))
+          max(1.5rem, env(safe-area-inset-left));
+        background: #111111;
+        color: #ffffff;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        text-align: center;
+      }
+      .card {
+        max-width: 22rem;
+      }
+      .mark {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 auto 1.25rem;
+        border-radius: 999px;
+        background: #075be8;
+        display: grid;
+        place-items: center;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-style: italic;
+        font-weight: 800;
+        font-size: 1.75rem;
+      }
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 1.35rem;
+        font-weight: 800;
+      }
+      p {
+        margin: 0;
+        color: #a0a0a0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      button {
+        margin-top: 1.5rem;
+        width: 100%;
+        border: 0;
+        border-radius: 0.5rem;
+        background: #075be8;
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 0.85rem 1rem;
+        cursor: pointer;
+      }
+      .hint {
+        margin-top: 0.85rem;
+        font-size: 0.8rem;
+        color: #6b6b6b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="mark" aria-hidden="true">t</div>
+      <h1>You're offline</h1>
+      <p>
+        TicketMaster needs an internet connection to browse events and manage
+        tickets. Booking and payments are unavailable offline.
+      </p>
+      <button type="button" id="retry">Try again</button>
+      <p class="hint">We'll reconnect automatically when you're back online.</p>
+    </div>
+    <script>
+      const retry = () => {
+        if (navigator.onLine) {
+          window.location.href = '/';
+        } else {
+          window.location.reload();
+        }
+      };
+      document.getElementById('retry').addEventListener('click', retry);
+      window.addEventListener('online', () => {
+        window.location.href = '/';
+      });
+    </script>
+  </body>
+</html>
